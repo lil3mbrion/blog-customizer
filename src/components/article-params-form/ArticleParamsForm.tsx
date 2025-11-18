@@ -15,6 +15,7 @@ import {
 import { Select } from 'src/ui/select';
 import { useOutsideClickClose } from 'src/ui/select/hooks/useOutsideClickClose';
 import styles from './ArticleParamsForm.module.scss';
+import clsx from 'clsx';
 
 interface ArticleParamsFormProps {
 	articleState: ArticleStateType;
@@ -73,9 +74,7 @@ export const ArticleParamsForm = ({
 			<ArrowButton isOpen={isOpen} onClick={handleToggle} />
 			<aside
 				ref={sideBar}
-				className={`${styles.container} ${
-					isOpen ? styles.container_open : ''
-				}`}>
+				className={clsx(styles.container, isOpen && styles.container_open)}>
 				<form className={styles.form} onSubmit={handleSubmit}>
 					<div className={styles.header}>
 						<h2 className={styles.title}>Задайте параметры</h2>
